@@ -9,6 +9,11 @@ return new class extends Migration
 {
     public function up(): void
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('phone_number', 50);
+            $table->tinyInteger('is_active')->default(1);
+        });
+        
         $user_admin = User::create([
             'name' => 'Administrador',
             'email' => 'admin@admin.com',
